@@ -38,6 +38,7 @@ img{display:block;max-width:100%}
 .logo-mark{position:relative;width:38px;height:38px;display:inline-grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple) 48%,var(--pink));box-shadow:0 0 25px rgba(240,26,160,.35);overflow:hidden}
 .logo-mark:after{content:'';position:absolute;width:19px;height:19px;border-radius:50%;background:var(--lime);right:-2px;bottom:-2px}
 .logo-core{position:relative;z-index:2;font-family:'Fredoka';font-size:20px;color:var(--white);text-shadow:2px 2px 0 rgba(0,0,0,.18)}
+.logo-mark img{width:100%;height:100%;object-fit:cover}.logo-mark:after{display:none}
 .logo-ring{display:none}
 .nav{display:flex;gap:5px}
 .nav button{border:0;background:transparent;color:var(--muted);padding:9px 12px;border-radius:999px;text-transform:capitalize;transition:.25s}
