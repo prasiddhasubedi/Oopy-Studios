@@ -242,3 +242,5 @@ body:after{content:'';position:fixed;inset:0;pointer-events:none;z-index:19;opac
 .catalog-controls select option{background:#16091f;color:#fff}
 .video-views{display:block;margin-top:.55rem;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;opacity:.72}
 .video-grid article{position:relative}
+
+.release-views{display:block;margin-top:.45rem;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;opacity:.72}.selected-works small{display:block;margin-top:.25rem;font-size:.7rem;opacity:.65}.release-card .release-views{margin-left:.05rem}.catalog-card .release-views{margin-top:.6rem}
