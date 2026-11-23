@@ -235,3 +235,10 @@ body:after{content:'';position:fixed;inset:0;pointer-events:none;z-index:19;opac
 @keyframes loaderPulse{to{transform:scale(1.08) rotate(8deg);box-shadow:0 0 55px rgba(240,26,160,.65)}}
 @media(max-width:560px){body:after{background-size:45px 45px}.hero:before{width:100vw;height:100vw}.artist-portrait:after{font-size:75px}}
 @media(prefers-reduced-motion:reduce){.hero:before,.emblem,.floating-disc,.loader .logo-mark{animation:none}}
+
+
+/* Video catalogue metadata */
+.catalog-controls select{min-width:150px;padding:.75rem 1rem;border:1px solid rgba(255,255,255,.14);border-radius:12px;background:rgba(255,255,255,.06);color:inherit;font:inherit;outline:none}
+.catalog-controls select option{background:#16091f;color:#fff}
+.video-views{display:block;margin-top:.55rem;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;opacity:.72}
+.video-grid article{position:relative}
