@@ -5,4 +5,9 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   base: '/Oopy-Studios/',
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      input: 'app.html',
+    },
+  },
 })
