@@ -40,10 +40,10 @@ jobs:
           cp dist/favicon.svg favicon.svg
           cp dist/icons.svg icons.svg
           cp dist/oopy-logo.svg oopy-logo.svg
-          cp dist/oopy-original.jpg public/oopy-original.jpg
+          cp dist/oopy-original.webp public/oopy-original.webp
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html app.html assets favicon.svg icons.svg oopy-logo.svg public/oopy-original.jpg
+          git add index.html app.html assets favicon.svg icons.svg oopy-logo.svg public/oopy-original.webp
           if git diff --cached --quiet; then
             echo "No generated site changes to commit."
           else
