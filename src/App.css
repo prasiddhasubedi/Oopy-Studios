@@ -26,3 +26,39 @@ footer{min-height:300px;padding:70px 7vw 35px;background:#0b0d0a;border-top:1px 
   .brand>span:last-child{display:none}.hero-copy h1{font-size:60px}.orbital-stage{width:330px;right:-155px}.featured-art{height:340px}.featured-strip h2{font-size:58px}.cover{height:390px}.editorial-section{padding:80px 20px}.release-card h3{font-size:24px}.catalog-controls{flex-direction:column}.catalog-controls input{width:140px}.catalog-controls label{margin-bottom:12px}.vinyl-wrap{height:340px}.catalog-card h2{font-size:30px}.catalog-card>div:last-child{grid-template-columns:60px 1fr}.release-art{height:430px}.release-actions{flex-direction:column}.release-actions .button{width:100%}.featured-video{height:430px}.featured-video h2{font-size:36px}.video-grid{grid-template-columns:1fr}.video-grid article>button{height:220px}.artist-main-image{height:430px}.selected-works img{height:340px}.about-grid>div{height:340px}.explore-page{padding-top:130px}.universe{height:650px}.object-b{right:-40px}.object-a{left:-35px}.object-c{left:35%}.contact-layout form{grid-template-columns:1fr}.contact-layout label:nth-child(3){grid-column:1}.contact-layout label:nth-child(4){grid-column:1}footer{padding:60px 20px 30px}
 }
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;scroll-behavior:auto!important}}
+
+
+/* OOPY STUDIOS — cinematic interaction layer */
+.hero-copy,.featured-strip>div:last-child,.release-card,.video-feature-copy,.artist-teaser>div:last-child,.page-heading,.catalog-card,.artist-bio,.manifesto,.about-grid article,.contact-layout form,.contact-layout aside{animation:revealUp .8s cubic-bezier(.2,.7,.2,1) both}
+.release-card:nth-child(2),.catalog-card:nth-child(2),.video-grid article:nth-child(2){animation-delay:.08s}
+.release-card:nth-child(3),.catalog-card:nth-child(3),.video-grid article:nth-child(3){animation-delay:.16s}
+.release-card:nth-child(4),.catalog-card:nth-child(4),.video-grid article:nth-child(4){animation-delay:.24s}
+@keyframes revealUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.button,.text-link,.section-title button,.back-link,.filters button,.platform-list a,.footer-links a,.footer-links button{transition:color .25s,border-color .25s,background .25s,transform .25s}
+.button:hover{transform:translateY(-2px)}
+.button.primary:hover{background:var(--gold);border-color:var(--gold)}
+.button.ghost:hover,.filters button:hover,.section-title button:hover,.text-link:hover{color:var(--gold)}
+.brand:hover .logo-ring{transform:rotateX(58deg) rotateZ(25deg) scale(1.08)}
+.release-card .cover,.selected-works button,.video-grid article>button,.featured-art,.artist-main-image,.about-grid>div{border:1px solid rgba(239,236,228,.08)}
+.release-card .cover:after,.catalog-card .vinyl-wrap:after,.video-grid article>button:after,.featured-art:after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 55%,rgba(197,168,117,.12));opacity:0;transition:opacity .5s;pointer-events:none}
+.release-card:hover .cover:after,.catalog-card:hover .vinyl-wrap:after,.video-grid article:hover button:after,.featured-art:hover:after{opacity:1}
+.release-card:hover h3,.video-grid article:hover h3,.selected-works button:hover span{color:var(--gold);transition:color .3s}
+.catalog-card,.release-card,.video-grid article,.selected-works button{transition:transform .4s}
+.catalog-card:hover,.release-card:hover,.video-grid article:hover,.selected-works button:hover{transform:translateY(-5px)}
+.featured-strip .featured-art img,.artist-main-image img,.artist-portrait img,.about-grid img{transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .5s}
+.featured-art:hover img,.artist-main-image:hover img,.artist-portrait:hover img,.about-grid>div:hover img{transform:scale(1.025)}
+.featured-video img{transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.featured-video:hover img{transform:scale(1.025)}
+.hero-copy h1{animation:heroTitle 1.2s .15s cubic-bezier(.2,.7,.2,1) both}
+@keyframes heroTitle{from{opacity:0;transform:translateY(35px);letter-spacing:-.02em}to{opacity:1;transform:none;letter-spacing:-.075em}}
+.orbital-stage{animation:stageIn 1.4s .1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes stageIn{from{opacity:0;transform:translateY(-50%) scale(.88) rotate(-8deg)}to{opacity:1;transform:translateY(-50%) scale(1) rotate(0)}}
+.release-art{overflow:visible}
+.release-art img{transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.release-art:hover img{transform:scale(1.018)}
+.large-vinyl{transition:right .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.release-art:hover .large-vinyl{right:-14%;transform:translateY(-50%) rotate(25deg)}
+.featured-video .play,.video-grid article>button span{transition:transform .35s,background .35s}
+.featured-video:hover .play{transform:translate(-50%,-50%) scale(1.08);background:rgba(197,168,117,.28)}
+.video-grid article:hover button span{transform:translate(-50%,-50%) scale(1.08);background:rgba(197,168,117,.28)}
+@media(max-width:900px){.release-card:hover,.catalog-card:hover,.video-grid article:hover,.selected-works button:hover{transform:none}.hero-copy,.featured-strip>div:last-child,.release-card,.video-feature-copy,.artist-teaser>div:last-child,.page-heading,.catalog-card,.artist-bio,.manifesto,.about-grid article,.contact-layout form,.contact-layout aside{animation:none}}
