@@ -37,7 +37,6 @@ jobs:
           mkdir -p assets
           cp -R dist/assets/. assets/
           cp dist/index.html index.html
-          cp dist/app.html app.html
           cp dist/favicon.svg favicon.svg
           cp dist/icons.svg icons.svg
           cp dist/oopy-logo.svg oopy-logo.svg
