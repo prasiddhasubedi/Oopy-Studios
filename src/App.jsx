@@ -85,12 +85,24 @@ function ReleaseDetail({release,navigate}) {
 function Videos() {
   const [query,setQuery]=useState('')
   const [category,setCategory]=useState('All')
-  const filtered=videos.filter(video=>(category==='All'||video.category===category)&&video.title.toLowerCase().includes(query.toLowerCase()))
+  const [sort,setSort]=useState('latest')
+  const filtered=videos
+    .filter(video=>(category==='All'||video.category===category)&&video.title.toLowerCase().includes(query.toLowerCase()))
+    .sort((a,b)=>sort==='views'?b.views-a.views:sort==='oldest'?videos.indexOf(b)-videos.indexOf(a):videos.indexOf(a)-videos.indexOf(b))
   return <main className="inner-page videos-page">
-    <PageHeading eyebrow="The screen" title="Videos" copy="Films, live moments and visual studies from the Oopy Studios world."/>
-    <button className="featured-video" onClick={()=>window.open(videos[0].url,'_blank','noopener,noreferrer')}><img src={videos[0].image} alt="" loading="lazy"/><span className="play">▶</span><div><p>Featured film</p><h2>{videos[0].title}</h2></div></button>
-    <div className="catalog-controls"><label>Search <input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Video title"/></label><div className="filters">{['All','Studio','Visual','Live'].map(item=><button key={item} className={category===item?'active':''} onClick={()=>setCategory(item)}>{item}</button>)}</div></div>
-    <div className="video-grid">{filtered.map(video=><article key={video.id}><button onClick={()=>window.open(video.url,'_blank','noopener,noreferrer')}><img src={video.image} alt={`${video.title} thumbnail`} loading="lazy"/><span>▶</span></button><p>{video.category} · {video.date}</p><h3>{video.title}</h3></article>)}</div>
+    <PageHeading eyebrow="The screen" title="Videos" copy={`All ${videos.length} uploaded videos from the Oopy Studios channel, with the view count shown for every upload.`}/>
+    <button className="featured-video" onClick={()=>window.open(videos[0].url,'_blank','noopener,noreferrer')}><img src={videos[0].image} alt="" loading="lazy"/><span className="play">▶</span><div><p>Latest upload · {videos[0].viewLabel} views</p><h2>{videos[0].title}</h2></div></button>
+    <div className="catalog-controls">
+      <label>Search <input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search all uploads"/></label>
+      <label>Sort <select value={sort} onChange={e=>setSort(e.target.value)}><option value="latest">Latest</option><option value="views">Most viewed</option><option value="oldest">Oldest</option></select></label>
+      <div className="filters">{['All','Original / Hindi','Cover','Collab / Cover','Mashup','Lo-Fi','Devotional'].map(item=><button key={item} className={category===item?'active':''} onClick={()=>setCategory(item)}>{item}</button>)}</div>
+    </div>
+    <div className="video-grid">{filtered.map((video,index)=><article key={video.id}>
+      <button onClick={()=>window.open(video.url,'_blank','noopener,noreferrer')}><img src={video.image} alt={`${video.title} thumbnail`} loading="lazy"/><span>▶</span></button>
+      <p>{sort==='views'?`#${index+1} · ${video.category}`:video.category} · ${video.date}</p>
+      <h3>{video.title}</h3>
+      <strong className="video-views">◉ {video.viewLabel} views</strong>
+    </article>)}</div>
   </main>
 }
 
