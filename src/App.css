@@ -62,3 +62,8 @@ footer{min-height:300px;padding:70px 7vw 35px;background:#0b0d0a;border-top:1px 
 .featured-video:hover .play{transform:translate(-50%,-50%) scale(1.08);background:rgba(197,168,117,.28)}
 .video-grid article:hover button span{transform:translate(-50%,-50%) scale(1.08);background:rgba(197,168,117,.28)}
 @media(max-width:900px){.release-card:hover,.catalog-card:hover,.video-grid article:hover,.selected-works button:hover{transform:none}.hero-copy,.featured-strip>div:last-child,.release-card,.video-feature-copy,.artist-teaser>div:last-child,.page-heading,.catalog-card,.artist-bio,.manifesto,.about-grid article,.contact-layout form,.contact-layout aside{animation:none}}
+
+
+.hero-meta{display:flex;gap:28px;margin-top:34px;font-size:9px;letter-spacing:.18em;color:rgba(239,236,228,.42)}
+.hero-meta span{position:relative}.hero-meta span+span:before{content:'';position:absolute;width:3px;height:3px;border-radius:50%;background:var(--gold);left:-16px;top:50%;transform:translateY(-50%)}
+@media(max-width:560px){.hero-meta{gap:18px;font-size:8px}.hero-meta span+span:before{left:-11px}}
