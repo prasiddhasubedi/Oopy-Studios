@@ -30,7 +30,7 @@ function Header({route,navigate}) {
 function Footer({navigate}) {
   return <footer>
     <button className="brand footer-brand" onClick={()=>navigate('home')}><Logo compact/><span>OOPY STUDIOS</span></button>
-    <p>Independent music, moving image and sonic worlds.</p>
+    <p>Independent music, moving image and sonic worlds — built from Nepal, made to travel.</p>
     <div className="footer-links"><a href={socials.youtube} target="_blank" rel="noreferrer">YouTube ↗</a><a href={socials.instagram} target="_blank" rel="noreferrer">Instagram ↗</a><button onClick={()=>navigate('contact')}>Contact</button></div>
     <small>© {currentYear} Oopy Studios</small>
   </footer>
@@ -42,22 +42,22 @@ function PageHeading({eyebrow,title,copy}) {
 
 function Home({navigate}) {
   return <>
-    <section className="hero">
+    <section className="hero" id="top">
       <div className="hero-grain"/>
       <div className="orbital-stage" aria-hidden="true"><div className="orbit orbit-one"/><div className="orbit orbit-two"/><div className="emblem"><span>O</span><i/></div><div className="floating-disc disc-one"/><div className="floating-disc disc-two"/></div>
-      <div className="hero-copy"><p className="eyebrow">Independent sound & vision</p><h1>OOPY<br/><em>STUDIOS</em></h1><p className="hero-line">Music for elsewhere.</p><div className="hero-actions"><a className="button primary" href={socials.youtube} target="_blank" rel="noreferrer">Watch on YouTube <span>↗</span></a><button className="button ghost" onClick={()=>navigate('music')}>Explore releases <span>↓</span></button></div></div>
+      <div className="hero-copy"><p className="eyebrow">Independent sound & vision</p><h1>OOPY<br/><em>STUDIOS</em></h1><p className="hero-line">Music for elsewhere.</p><div className="hero-meta"><span>NEPAL · 2026</span><span>PRASIDDHA SUBEDI</span></div><div className="hero-actions"><a className="button primary" href={socials.youtube} target="_blank" rel="noreferrer">Watch on YouTube <span>↗</span></a><button className="button ghost" onClick={()=>navigate('music')}>Explore releases <span>↓</span></button></div></div>
       <div className="hero-index"><span>01</span><i/><span>07</span></div>
     </section>
     <section className="featured-strip">
       <div className="featured-art"><img src={releases[0].artwork} alt={`${releases[0].title} artwork`}/><button onClick={()=>navigate(`music/${releases[0].id}`)} aria-label="View featured release">↗</button></div>
       <div><p className="eyebrow">Featured release · 2026</p><h2>{releases[0].title}</h2><p>{releases[0].description}</p><button className="text-link" onClick={()=>navigate(`music/${releases[0].id}`)}>Discover release →</button></div>
     </section>
-    <section className="editorial-section">
+    <section className="editorial-section" id="releases">
       <div className="section-title"><p className="eyebrow">Selected releases</p><button onClick={()=>navigate('music')}>View all →</button></div>
       <div className="release-grid">{releases.slice(1).map((release,index)=><article className="release-card" key={release.id} onClick={()=>navigate(`music/${release.id}`)}><div className="cover"><img src={release.artwork} alt={`${release.title} artwork`} loading="lazy"/><span>0{index+2}</span></div><h3>{release.title}</h3><p>{release.type} · {release.year}</p></article>)}</div>
     </section>
-    <section className="video-feature"><div className="video-frame" onClick={()=>navigate('videos')}><img src={videos[0].image} alt="" loading="lazy"/><button aria-label="Play featured video">▶</button></div><div className="video-feature-copy"><p className="eyebrow">Latest from YouTube</p><h2>Inside the<br/><em>studio</em></h2><button className="text-link" onClick={()=>navigate('videos')}>Watch the films →</button></div></section>
-    <section className="artist-teaser"><div className="artist-portrait"><img src={releases[2].artwork} alt="Prasiddha Subedi — Oopy Studios" loading="lazy"/></div><div><p className="eyebrow">The artist</p><h2>Prasiddha<br/><em>Subedi</em></h2><p>Prasiddha Subedi is the artist behind Oopy Studios, building songs and visual worlds around memory, atmosphere and independent experimentation.</p><button className="text-link" onClick={()=>navigate('artist')}>Enter the artist world →</button></div></section>
+    <section className="video-feature" id="films"><div className="video-frame" onClick={()=>navigate('videos')}><img src={videos[0].image} alt="" loading="lazy"/><button aria-label="Play featured video">▶</button></div><div className="video-feature-copy"><p className="eyebrow">Latest from YouTube</p><h2>Inside the<br/><em>studio</em></h2><button className="text-link" onClick={()=>navigate('videos')}>Watch the films →</button></div></section>
+    <section className="artist-teaser" id="artist"><div className="artist-portrait"><img src={releases[2].artwork} alt="Prasiddha Subedi — Oopy Studios" loading="lazy"/></div><div><p className="eyebrow">The artist</p><h2>Prasiddha<br/><em>Subedi</em></h2><p>Prasiddha Subedi is the artist behind Oopy Studios, building songs and visual worlds around memory, atmosphere and independent experimentation.</p><button className="text-link" onClick={()=>navigate('artist')}>Enter the artist world →</button></div></section>
   </>
 }
 
