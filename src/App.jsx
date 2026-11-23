@@ -49,7 +49,7 @@ function Home({navigate}) {
       <div className="hero-index"><span>01</span><i/><span>07</span></div>
     </section>
     <section className="featured-strip">
-      <div className="featured-art"><img src={releases[0].artwork} alt="Midnight Frequency artwork"/><button onClick={()=>navigate(`music/${releases[0].id}`)} aria-label="View featured release">↗</button></div>
+      <div className="featured-art"><img src={releases[0].artwork} alt={`${releases[0].title} artwork`}/><button onClick={()=>navigate(`music/${releases[0].id}`)} aria-label="View featured release">↗</button></div>
       <div><p className="eyebrow">Featured release · 2026</p><h2>{releases[0].title}</h2><p>{releases[0].description}</p><button className="text-link" onClick={()=>navigate(`music/${releases[0].id}`)}>Discover release →</button></div>
     </section>
     <section className="editorial-section">
@@ -57,7 +57,7 @@ function Home({navigate}) {
       <div className="release-grid">{releases.slice(1).map((release,index)=><article className="release-card" key={release.id} onClick={()=>navigate(`music/${release.id}`)}><div className="cover"><img src={release.artwork} alt={`${release.title} artwork`} loading="lazy"/><span>0{index+2}</span></div><h3>{release.title}</h3><p>{release.type} · {release.year}</p></article>)}</div>
     </section>
     <section className="video-feature"><div className="video-frame" onClick={()=>navigate('videos')}><img src={videos[0].image} alt="" loading="lazy"/><button aria-label="Play featured video">▶</button></div><div className="video-feature-copy"><p className="eyebrow">Latest from YouTube</p><h2>Inside the<br/><em>studio</em></h2><button className="text-link" onClick={()=>navigate('videos')}>Watch the films →</button></div></section>
-    <section className="artist-teaser"><div className="artist-portrait"><img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1100&q=85" alt="Artist portrait placeholder" loading="lazy"/></div><div><p className="eyebrow">The artist</p><h2>Prasiddha<br/><em>Subedi</em></h2><p>Music, moving image and a visual language shaped through curiosity.</p><button className="text-link" onClick={()=>navigate('artist')}>Enter the artist world →</button></div></section>
+    <section className="artist-teaser"><div className="artist-portrait"><img src={releases[2].artwork} alt="Prasiddha Subedi — Oopy Studios" loading="lazy"/></div><div><p className="eyebrow">The artist</p><h2>Prasiddha<br/><em>Subedi</em></h2><p>Prasiddha Subedi is the artist behind Oopy Studios, building songs and visual worlds around memory, atmosphere and independent experimentation.</p><button className="text-link" onClick={()=>navigate('artist')}>Enter the artist world →</button></div></section>
   </>
 }
 
@@ -78,7 +78,7 @@ function Music({navigate,routeParts}) {
 function ReleaseDetail({release,navigate}) {
   return <main className="inner-page release-detail"><button className="back-link" onClick={()=>navigate('music')}>← Back to music</button>
     <div className="release-hero"><div className="release-art"><img src={release.artwork} alt={`${release.title} artwork`}/><div className="large-vinyl"/></div><div className="release-copy"><p className="eyebrow">{release.type} · {release.year}</p><h1>{release.title}</h1><p className="artist-name">Prasiddha Subedi</p><p>{release.description}</p><p className="release-date">{release.date}</p><div className="release-actions"><a className="button primary" href={release.video} target="_blank" rel="noreferrer">Watch video ↗</a><a className="button ghost" href={socials.spotify} target="_blank" rel="noreferrer">Streaming links ↗</a></div></div></div>
-    <section className="release-notes"><div><p className="eyebrow">About</p><p>{release.description}</p></div><div><p className="eyebrow">Credits</p><p>Artist: Prasiddha Subedi<br/>Release details to be updated.</p></div></section>
+    <section className="release-notes"><div><p className="eyebrow">About</p><p>{release.description}</p></div><div><p className="eyebrow">Credits</p><p>Artist: Prasiddha Subedi<br/>Independent release · Oopy Studios</p></div></section>
   </main>
 }
 
@@ -97,7 +97,7 @@ function Videos() {
 function Artist({navigate}) {
   return <main className="inner-page artist-page">
     <PageHeading eyebrow="The artist" title="Prasiddha Subedi"/>
-    <section className="artist-layout"><div className="artist-main-image"><img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1400&q=85" alt="Artist portrait placeholder" loading="lazy"/><p>Prasiddha Subedi</p></div><div className="artist-bio"><p className="eyebrow">Profile</p><h2>Making work that lives between sound and image.</h2><p>Prasiddha Subedi is the artist behind Oopy Studios—a creative practice centred on music, visual storytelling and independent experimentation.</p><div className="platform-list"><a href={socials.youtube} target="_blank" rel="noreferrer">YouTube <span>↗</span></a><a href={socials.spotify} target="_blank" rel="noreferrer">Spotify <span>↗</span></a><a href={socials.apple} target="_blank" rel="noreferrer">Apple Music <span>↗</span></a><a href={socials.instagram} target="_blank" rel="noreferrer">Instagram <span>↗</span></a></div></div></section>
+    <section className="artist-layout"><div className="artist-main-image"><img src={releases[2].artwork} alt="Prasiddha Subedi — Oopy Studios" loading="lazy"/><p>Prasiddha Subedi</p></div><div className="artist-bio"><p className="eyebrow">Profile</p><h2>Making work that lives between sound and image.</h2><p>Prasiddha Subedi is the artist behind Oopy Studios—a creative practice centred on music, visual storytelling and independent experimentation.</p><div className="platform-list"><a href={socials.youtube} target="_blank" rel="noreferrer">YouTube <span>↗</span></a><a href={socials.spotify} target="_blank" rel="noreferrer">Spotify <span>↗</span></a><a href={socials.apple} target="_blank" rel="noreferrer">Apple Music <span>↗</span></a><a href={socials.instagram} target="_blank" rel="noreferrer">Instagram <span>↗</span></a></div></div></section>
     <section className="selected-works"><div className="section-title"><p className="eyebrow">Selected works</p><button onClick={()=>navigate('music')}>Discography →</button></div><div>{releases.slice(0,3).map(release=><button key={release.id} onClick={()=>navigate(`music/${release.id}`)}><img src={release.artwork} alt="" loading="lazy"/><span>{release.title}</span></button>)}</div></section>
   </main>
 }
@@ -106,7 +106,7 @@ function About() {
   return <main className="inner-page about-page">
     <PageHeading eyebrow="The studio" title="About Oopy" copy="A creative identity built around independent music and the worlds it can open."/>
     <section className="manifesto"><p className="eyebrow">01 / What we represent</p><h2>Oopy Studios is a space for sound, moving image and ideas that do not need to explain themselves before they begin.</h2></section>
-    <section className="about-grid"><div><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=85" alt="Recording studio" loading="lazy"/></div><article><p className="eyebrow">Creative philosophy</p><h3>Listen closely.</h3><p>We begin with feeling. Texture, tone and atmosphere are treated as story; every release is an invitation to notice something more deeply.</p></article><article><p className="eyebrow">Artistic vision</p><h3>Make it personal.</h3><p>Our work is independent by nature—personal in scale, cinematic in ambition and always open to surprise.</p></article></section>
+    <section className="about-grid"><div><img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=85" alt="Recording studio" loading="lazy"/></div><article><p className="eyebrow">Creative philosophy</p><h3>Listen closely.</h3><p>We begin with feeling. Texture, tone and atmosphere become part of the story; every release is an invitation to notice something a little more deeply.</p></article><article><p className="eyebrow">Artistic vision</p><h3>Make it personal.</h3><p>The work stays independent by nature—personal in scale, cinematic in ambition and open to the strange, beautiful details that appear along the way.</p></article></section>
   </main>
 }
 
