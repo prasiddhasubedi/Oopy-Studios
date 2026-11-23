@@ -11,7 +11,7 @@ const getRoute = () => {
 }
 
 function Logo({compact=false}) {
-  return <span className={`logo-mark ${compact?'compact':''}`}><img src="/Oopy-Studios/oopy-original.webp" alt="Oopy Studios logo" /></span>
+  return <span className={`logo-mark ${compact?'compact':''}`}><img src="/Oopy-Studios/oopy-favicon.png" alt="Oopy Studios logo" /></span>
 }
 
 function Header({route,navigate}) {
